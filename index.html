@@ -1,0 +1,981 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Aashish Bhandari — Computer Science student, developer and technology enthusiast.">
+<title>Aashish Panday | Developer Portfolio</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --bg: #080808;
+  --surface: #101010;
+  --white: #f5f5f5;
+  --muted: #858585;
+  --line: #252525;
+  --font: 'Manrope', sans-serif;
+  --mono: 'DM Mono', monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: var(--font);
+  line-height: 1.7;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  width: min(1120px, 88%);
+  margin: auto;
+}
+
+/* NAVIGATION */
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  background: rgba(8,8,8,.88);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid var(--line);
+}
+
+.nav-inner {
+  height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.logo span {
+  color: var(--muted);
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 12px;
+  color: #aaa;
+  transition: .3s;
+}
+
+.nav-links a:hover {
+  color: white;
+}
+
+.menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+/* HERO */
+
+.hero {
+  min-height: 760px;
+  display: flex;
+  align-items: center;
+  padding-top: 100px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  right: -150px;
+  top: 100px;
+  background: radial-gradient(circle, #292929 0%, transparent 70%);
+  opacity: .3;
+  pointer-events: none;
+}
+
+.availability {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid #333;
+  padding: 8px 14px;
+  border-radius: 30px;
+  color: #bbb;
+  font-family: var(--mono);
+  font-size: 10px;
+  margin-bottom: 30px;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  background: #aaa;
+  border-radius: 50%;
+}
+
+.hero h1 {
+  font-size: clamp(55px, 9vw, 105px);
+  line-height: 1.05;
+  letter-spacing: -7px;
+  font-weight: 800;
+}
+
+.hero h1 span {
+  color: #777;
+}
+
+.hero-description {
+  max-width: 540px;
+  margin-top: 28px;
+  font-size: 16px;
+  color: #999;
+  line-height: 1.9;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 35px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  padding: 13px 22px;
+  font-size: 12px;
+  font-weight: 700;
+  border: 1px solid #555;
+  transition: .3s;
+}
+
+.btn.primary {
+  background: white;
+  color: black;
+  border-color: white;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  background: #ddd;
+  color: black;
+}
+
+.hero-bottom {
+  margin-top: 90px;
+  display: flex;
+  gap: 55px;
+  flex-wrap: wrap;
+}
+
+.hero-stat small {
+  display: block;
+  color: #777;
+  font-family: var(--mono);
+  font-size: 10px;
+}
+
+.hero-stat strong {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* GENERAL SECTIONS */
+
+section {
+  padding: 110px 0;
+  border-top: 1px solid var(--line);
+}
+
+.section-label {
+  color: #777;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 2px;
+  margin-bottom: 18px;
+}
+
+.section-title {
+  font-size: clamp(35px, 5vw, 55px);
+  letter-spacing: -3px;
+  line-height: 1.2;
+  margin-bottom: 45px;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+/* ABOUT */
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.about-text {
+  color: #aaa;
+  font-size: 15px;
+  line-height: 2;
+}
+
+.about-text p + p {
+  margin-top: 20px;
+}
+
+.info-list {
+  border-top: 1px solid var(--line);
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 17px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 12px;
+  gap: 15px;
+}
+
+.info-item span:first-child {
+  color: #777;
+}
+
+/* SKILLS */
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.skill-card {
+  border: 1px solid var(--line);
+  background: var(--surface);
+  padding: 27px;
+  transition: .3s;
+}
+
+.skill-card:hover {
+  border-color: #777;
+  transform: translateY(-5px);
+}
+
+.skill-card h3 {
+  font-size: 17px;
+  margin: 18px 0 10px;
+}
+
+.skill-card p {
+  color: #888;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.skill-number {
+  font-family: var(--mono);
+  color: #666;
+  font-size: 11px;
+}
+
+/* PROJECTS */
+
+.projects {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.project-card {
+  border: 1px solid var(--line);
+  background: #0d0d0d;
+  transition: .3s;
+}
+
+.project-card:hover {
+  border-color: #777;
+}
+
+.project-visual {
+  height: 210px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #171717;
+  overflow: hidden;
+  position: relative;
+}
+
+.project-visual .visual-text {
+  font-size: 55px;
+  font-weight: 800;
+  letter-spacing: -5px;
+  color: #444;
+  transition: .4s;
+}
+
+.project-card:hover .visual-text {
+  color: #ddd;
+  transform: scale(1.1);
+}
+
+.project-info {
+  padding: 25px;
+}
+
+.project-info h3 {
+  font-size: 19px;
+  margin-bottom: 10px;
+}
+
+.project-info p {
+  color: #888;
+  font-size: 12px;
+  line-height: 1.9;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.project-tags span {
+  font-family: var(--mono);
+  font-size: 9px;
+  padding: 6px 9px;
+  border: 1px solid #333;
+  color: #aaa;
+}
+
+.project-status {
+  color: #777;
+  font-family: var(--mono);
+  font-size: 9px;
+  margin-top: 20px;
+}
+
+/* JOURNEY */
+
+.timeline {
+  border-left: 1px solid #444;
+  margin-left: 8px;
+}
+
+.timeline-item {
+  position: relative;
+  padding: 0 0 45px 35px;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -5px;
+  top: 8px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: white;
+}
+
+.timeline-item small {
+  font-family: var(--mono);
+  color: #777;
+  font-size: 10px;
+}
+
+.timeline-item h3 {
+  margin: 8px 0;
+  font-size: 18px;
+}
+
+.timeline-item p {
+  color: #888;
+  font-size: 13px;
+  max-width: 550px;
+}
+
+/* GOALS */
+
+.goals-box {
+  padding: 55px;
+  border: 1px solid #333;
+  background: linear-gradient(135deg, #161616, #090909);
+}
+
+.goals-box h2 {
+  font-size: 35px;
+  letter-spacing: -2px;
+  max-width: 650px;
+}
+
+.goals-box p {
+  color: #999;
+  margin-top: 20px;
+  font-size: 14px;
+  max-width: 600px;
+}
+
+/* CONTACT */
+
+.contact-content {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  align-items: end;
+}
+
+.contact-content h2 {
+  font-size: clamp(40px, 7vw, 75px);
+  letter-spacing: -5px;
+  line-height: 1.1;
+}
+
+.contact-content p {
+  color: #888;
+  margin-top: 20px;
+}
+
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  min-width: 140px;
+}
+
+.contact-links a {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: #aaa;
+  border-bottom: 1px solid #444;
+  padding-bottom: 8px;
+}
+
+.contact-links a:hover {
+  color: white;
+}
+
+/* FOOTER */
+
+footer {
+  border-top: 1px solid var(--line);
+  padding: 28px 0;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  color: #777;
+  font-family: var(--mono);
+  font-size: 10px;
+  gap: 15px;
+}
+
+/* ANIMATION */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: .7s ease;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 750px) {
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 76px;
+    left: 0;
+    width: 100%;
+    background: #0b0b0b;
+    flex-direction: column;
+    padding: 25px 6%;
+    border-bottom: 1px solid #333;
+    gap: 20px;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .menu-btn {
+    display: block;
+  }
+
+  .hero {
+    min-height: 700px;
+  }
+
+  .hero h1 {
+    letter-spacing: -4px;
+  }
+
+  .about-grid,
+  .projects {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .contact-content {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .goals-box {
+    padding: 30px;
+  }
+}
+
+@media(max-width: 430px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-bottom {
+    gap: 25px;
+  }
+
+  section {
+    padding: 80px 0;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<nav>
+  <div class="container nav-inner">
+    <a href="#home" class="logo">A<span>.</span>P</a>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">ABOUT</a></li>
+      <li><a href="#skills">SKILLS</a></li>
+      <li><a href="#projects">PROJECTS</a></li>
+      <li><a href="#journey">JOURNEY</a></li>
+      <li><a href="#contact">CONTACT</a></li>
+    </ul>
+
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation">☰</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+
+<main>
+
+<section class="hero" id="home">
+  <div class="container">
+    <div class="reveal">
+      <div class="availability">
+        <span class="dot"></span>
+        STUDENT · DEVELOPER IN PROGRESS
+      </div>
+
+      <h1>
+        Aashish<br>
+        <span>Panday.</span>
+      </h1>
+
+      <p class="hero-description">
+        Computer Science student, aspiring software developer,
+        and technology enthusiast. I enjoy understanding how
+        things work, building useful projects, and turning
+        ideas into reality through technology.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#projects" class="btn primary">EXPLORE MY WORK ↗</a>
+        <a href="#contact" class="btn">GET IN TOUCH</a>
+      </div>
+    </div>
+
+    <div class="hero-bottom reveal">
+      <div class="hero-stat">
+        <small>BASED IN</small>
+        <strong>Butwal, Nepal</strong>
+      </div>
+      <div class="hero-stat">
+        <small>FIELD</small>
+        <strong>Computer Science</strong>
+      </div>
+      <div class="hero-stat">
+        <small>CURRENT FOCUS</small>
+        <strong>Web Development</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+
+<section id="about">
+  <div class="container reveal">
+    <div class="section-label">01 / ABOUT ME</div>
+    <h2 class="section-title">Curious mind.<br><span class="muted">Builder's mindset.</span></h2>
+
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+          I'm Aashish Panday, a Computer Science student from Nepal
+          with a strong interest in software development and emerging
+          technologies.
+        </p>
+
+        <p>
+          My journey started with curiosity about computers,
+          programming, and the way technology solves real-world
+          problems. Today, I'm working on strengthening my
+          foundations in programming, web development, and computer
+          science.
+        </p>
+
+        <p>
+          I believe in learning by building. Instead of only
+          consuming information, I want to experiment, create
+          projects, make mistakes, and improve through experience.
+        </p>
+
+        <p>
+          My long-term interests include Artificial Intelligence,
+          Machine Learning, Full-Stack Development, and building
+          technology that creates meaningful impact.
+        </p>
+      </div>
+
+      <div class="info-list">
+        <div class="info-item">
+          <span>Name</span>
+          <strong>Aashish Panday</strong>
+        </div>
+        <div class="info-item">
+          <span>Location</span>
+          <strong>Nepal</strong>
+        </div>
+        <div class="info-item">
+          <span>Education</span>
+          <strong>BIT / Computer Science</strong>
+        </div>
+        <div class="info-item">
+          <span>Interests</span>
+          <strong>Software & AI</strong>
+        </div>
+        <div class="info-item">
+          <span>Learning</span>
+          <strong>Web Development</strong>
+        </div>
+        <div class="info-item">
+          <span>Mindset</span>
+          <strong>Learn · Build · Improve</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+
+<section id="skills">
+  <div class="container reveal">
+    <div class="section-label">02 / TECHNICAL INTERESTS</div>
+    <h2 class="section-title">Things I'm<br><span class="muted">working on.</span></h2>
+
+    <div class="skills-grid">
+
+      <div class="skill-card">
+        <span class="skill-number">01 — PROGRAMMING</span>
+        <h3>C Programming</h3>
+        <p>Building programming fundamentals, logical thinking,
+        problem-solving, and understanding how code works.</p>
+      </div>
+
+      <div class="skill-card">
+        <span class="skill-number">02 — FRONTEND</span>
+        <h3>HTML & CSS</h3>
+        <p>Learning to build responsive websites with clean
+        layouts, structured content, and modern design.</p>
+      </div>
+
+      <div class="skill-card">
+        <span class="skill-number">03 — JAVASCRIPT</span>
+        <h3>JavaScript</h3>
+        <p>Understanding functions, objects, arrays, methods,
+        scope, and the fundamentals of interactive websites.</p>
+      </div>
+
+      <div class="skill-card">
+        <span class="skill-number">04 — VERSION CONTROL</span>
+        <h3>Git & GitHub</h3>
+        <p>Learning commits, snapshots, repositories,
+        version history, and collaborative development.</p>
+      </div>
+
+      <div class="skill-card">
+        <span class="skill-number">05 — ELECTRONICS</span>
+        <h3>ESP32 & IoT</h3>
+        <p>Exploring microcontrollers, physical buttons,
+        wireless communication, and connected systems.</p>
+      </div>
+
+      <div class="skill-card">
+        <span class="skill-number">06 — FUTURE INTEREST</span>
+        <h3>AI & Machine Learning</h3>
+        <p>Exploring artificial intelligence, data science,
+        machine learning, and intelligent applications.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+
+<section id="projects">
+  <div class="container reveal">
+    <div class="section-label">03 / SELECTED PROJECTS</div>
+    <h2 class="section-title">Ideas into<br><span class="muted">experiments.</span></h2>
+
+    <div class="projects">
+
+      <article class="project-card">
+        <div class="project-visual">
+          <div class="visual-text">01 / IoT</div>
+        </div>
+        <div class="project-info">
+          <h3>Hospital Emergency Alert System</h3>
+          <p>
+            An ESP32-based patient alert concept designed to
+            help hospital patients notify nursing staff using
+            a physical emergency button and a web interface.
+          </p>
+          <div class="project-tags">
+            <span>ESP32</span>
+            <span>IoT</span>
+            <span>HTML</span>
+            <span>JavaScript</span>
+          </div>
+          <div class="project-status">● IN DEVELOPMENT / CONCEPT</div>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-visual">
+          <div class="visual-text">02 / WEB</div>
+        </div>
+        <div class="project-info">
+          <h3>Personal Web Portfolio</h3>
+          <p>
+            A minimalist portfolio website presenting my
+            background, technical interests, learning journey,
+            and development projects.
+          </p>
+          <div class="project-tags">
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JavaScript</span>
+          </div>
+          <div class="project-status">● PERSONAL PROJECT</div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- JOURNEY -->
+
+<section id="journey">
+  <div class="container reveal">
+    <div class="section-label">04 / MY JOURNEY</div>
+    <h2 class="section-title">Learning never<br><span class="muted">stops.</span></h2>
+
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <small>FOUNDATION</small>
+        <h3>Science & Mathematics</h3>
+        <p>
+          Developed an academic foundation in mathematics,
+          physics, chemistry, and computer science.
+        </p>
+      </div>
+
+      <div class="timeline-item">
+        <small>UNIVERSITY</small>
+        <h3>Bachelor in Information Technology</h3>
+        <p>
+          Began the journey into university-level computing,
+          programming, and technical problem-solving.
+        </p>
+      </div>
+
+      <div class="timeline-item">
+        <small>CURRENT PHASE</small>
+        <h3>Building Development Skills</h3>
+        <p>
+          Studying C, HTML, CSS, JavaScript, Git, and
+          working on practical projects.
+        </p>
+      </div>
+
+      <div class="timeline-item">
+        <small>LONG-TERM DIRECTION</small>
+        <h3>Software Engineering & AI</h3>
+        <p>
+          Working towards becoming a capable software
+          developer, with future interests in AI and
+          Machine Learning.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- GOALS -->
+
+<section id="goals">
+  <div class="container reveal">
+    <div class="section-label">05 / VISION</div>
+
+    <div class="goals-box">
+      <h2>Not just learning technology. <span class="muted">Learning to create with it.</span></h2>
+
+      <p>
+        My goal is to develop strong technical foundations,
+        build meaningful software, work with people around
+        the world, and contribute to the future of technology.
+      </p>
+
+      <p>
+        I am particularly interested in Full-Stack Development,
+        Artificial Intelligence, Data Science, and Machine Learning.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact">
+  <div class="container reveal">
+    <div class="section-label">06 / CONTACT</div>
+
+    <div class="contact-content">
+      <div>
+        <h2>Let's build<br><span class="muted">something.</span></h2>
+        <p>
+          Interested in technology, collaboration, or exchanging ideas?
+          Feel free to connect.
+        </p>
+      </div>
+
+      <div class="contact-links">
+        <!-- Replace # with your real profile URLs -->
+        <a href="#" target="_blank">GITHUB ↗</a>
+        <a href="#" target="_blank">LINKEDIN ↗</a>
+        <a href="mailto:YOUR_EMAIL@example.com">EMAIL ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <span>© <span id="year"></span> AASHISH PANDAY</span>
+    <span>DESIGNED WITH INTENTION.</span>
+    <a href="#home">BACK TO TOP ↑</a>
+  </div>
+</footer>
+
+<script>
+// Mobile navigation
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+
+menuBtn.addEventListener("click", () => {
+  navLinks.classList.toggle("active");
+  menuBtn.textContent =
+    navLinks.classList.contains("active") ? "×" : "☰";
+});
+
+// Close menu after clicking a link
+document.querySelectorAll(".nav-links a").forEach(link => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("active");
+    menuBtn.textContent = "☰";
+  });
+});
+
+// Reveal animation
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll(".reveal").forEach(element => {
+  observer.observe(element);
+});
+
+// Automatic current year
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+</script>
+
+</body>
+</html>
